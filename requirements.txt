@@ -1,13 +1,6 @@
-gitdb==4.0.10
-GitPython==3.1.31
 joblib==1.2.0
 numpy==1.24.2
-packaging==23.0
 pandas==1.5.3
-pyarrow==11.0.0
-pydeck==0.8.0
-python-dateutil==2.8.2
-requests==2.28.2
 scikit-learn==1.2.2
 scipy==1.10.1
 streamlit==1.20.0
