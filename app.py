@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 from PIL import Image
-from model import preprocess_data, load_model_and_predict
+from model_use import preprocess_data, load_model_and_predict
 
 
 def process_main_page():
