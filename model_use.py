@@ -13,12 +13,9 @@ def preprocess_data(df: pd.DataFrame):
     one_hot_encoded = pd.get_dummies(df['GroupAge'])
     df = pd.concat([df, one_hot_encoded], axis=1)
     df.drop('GroupAge', axis=1, inplace=True)
-
     df = df[
-        ['DaysPastDueNotWorse_1', 'NumberOfTimes90DaysLate', 'DaysPastDueNotWorse_2', 'C',
+        ['RevolvingUtilizationOfUnsecuredLines', 'NumberOfTime30-59DaysPastDueNotWorse', 'NumberOfTimes90DaysLate', 'NumberOfTime60-89DaysPastDueNotWorse', 'C',
          'b', 'c']]
-    df = df.rename(columns={'DaysPastDueNotWorse_1': 'NumberOfTime30-59DaysPastDueNotWorse',
-                            'DaysPastDueNotWorse_2': 'NumberOfTime60-89DaysPastDueNotWorse'})
     return df.tail(1)
 
 def load_model_and_predict(df, path="data/model.pickle"):

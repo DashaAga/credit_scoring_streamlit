@@ -68,14 +68,14 @@ def process_side_bar_inputs():
 def sidebar_input_features():
     RevolvingUtilizationOfUnsecuredLines = st.sidebar.text_input("Общий баланс средств:", value="100000")
     DaysPastDueNotWorse_1 = st.sidebar.text_input(
-        "Сколько раз за последние 2 года наблюдалась просрочка 30-59 дней?", value = "0")
+        "Сколько раз за последние 2 года наблюдалась просрочка 30-59 дней?", value = "1")
     DebtRatio = st.sidebar.text_input("Ежемесячные расходы:", value = "10000")
     MonthlyIncome = st.sidebar.text_input("Ежемесячный доход:", value = "30000")
     NumberOfOpenCreditLinesAndLoans = st.sidebar.slider("Количество открытых кредитов и кредитных карт:", min_value=1,
                                                     max_value=80, value=13,
                                                     step=1)
     NumberOfTimes90DaysLate = st.sidebar.text_input("Сколько раз наблюдалась просрочка 90 и более дней?", value="0")
-    NumberRealEstateLoansOrLine = st.sidebar.text_input("Количество кредитов:", value = "0")
+    NumberRealEstateLoansOrLine = st.sidebar.text_input("Количество кредитов:", value = "1")
     RealEstateLoansOrLines = st.sidebar.selectbox("Закодированное количество кредиов", ("A", "B", "C", "D", "E"))
     DaysPastDueNotWorse_2 = st.sidebar.text_input("Сколько раз за последние 2 года был задержан платеж на 60-89 дней?", value="0")
     NumberOfDependents = st.sidebar.slider("Количество иждивенцев на попечении (супруги, дети и др):", min_value=1,
@@ -86,16 +86,16 @@ def sidebar_input_features():
                             step=1)
 
     data = {
-        "TotalBalance": int(RevolvingUtilizationOfUnsecuredLines),
-        "Age": age,
-        "DaysPastDueNotWorse_1": int(DaysPastDueNotWorse_1),
+        "RevolvingUtilizationOfUnsecuredLines": int(RevolvingUtilizationOfUnsecuredLines),
+        "age": age,
+        "NumberOfTime30-59DaysPastDueNotWorse": int(DaysPastDueNotWorse_1),
         "DebtRatio": int(DebtRatio),
         "MonthlyIncome": int(MonthlyIncome),
         "NumberOfOpenCreditLinesAndLoans": NumberOfOpenCreditLinesAndLoans,
         "NumberOfTimes90DaysLate": int(NumberOfTimes90DaysLate),
         "NumberRealEstateLoansOrLine": int(NumberRealEstateLoansOrLine),
         "RealEstateLoansOrLines": RealEstateLoansOrLines,
-        "DaysPastDueNotWorse_2": int(DaysPastDueNotWorse_2),
+        "NumberOfTime60-89DaysPastDueNotWorse": int(DaysPastDueNotWorse_2),
         "NumberOfDependents": NumberOfDependents,
         "GroupAge": GroupAge
     }
